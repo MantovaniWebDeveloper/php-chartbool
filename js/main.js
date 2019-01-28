@@ -1,7 +1,8 @@
 $(document).ready(function() {
   //indirizzo locale dei dati
   var url = 'http://localhost/php/php-chartbool/data.php';
- //parte esempio da modificare
+  recuperoDati(url);
+  //parte esempio da modificare
   var ctx = $(".wrapGrafico");
   var chart = new Chart(ctx, {
     // The type of chart we want to create
@@ -24,8 +25,23 @@ $(document).ready(function() {
 
 
 
-  function recuperoDati(url){
+  function recuperoDati(url) {
 
-  }
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function(data) {
+        var dati = JSON.parse(data);
+        console.log(dati);
+      },
+      error: function(error) {
+        alert("c'è un errore di comunicazione");
+      }
+    })
+
+
+
+
+};
 
 });
