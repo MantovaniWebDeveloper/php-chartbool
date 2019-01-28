@@ -1,0 +1,22 @@
+{
+  "name": "php-chartbool",
+  "version": "1.0.0",
+  "description": "versione avanzata con php",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MantovaniWebDeveloper/php-chartbool.git"
+  },
+  "author": "Dario Mantovani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MantovaniWebDeveloper/php-chartbool/issues"
+  },
+  "homepage": "https://github.com/MantovaniWebDeveloper/php-chartbool#readme",
+  "dependencies": {
+    "chart.js": "^2.7.3"
+  }
+}
