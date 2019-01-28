@@ -67,9 +67,11 @@ $(document).ready(function() {
         var ctxTorta = $(".wrapGrafico3");
         var datiFBA = dati.fatturato_by_agent.data;
         var nomi = [];
-        for (var dato in datiFBA) {
-          console.log(dato);
-          nomi.push(dato);
+        var fatturato = [];
+        for (var nome in datiFBA) {
+          console.log(nome + " " + datiFBA[nome]);
+          nomi.push(nome);
+          fatturato.push(datiFBA[nome]);
 
         }
 
@@ -80,8 +82,8 @@ $(document).ready(function() {
           type: typeFBA,
           data: {
             datasets: [{
-              labels: nomi,
-              data: [20,34,56,233],
+             labels: nomi,
+              data: fatturato,
               backgroundColor: [
                 "#FF6384",
                 "#63FF84",
