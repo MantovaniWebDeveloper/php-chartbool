@@ -63,7 +63,7 @@ $(document).ready(function() {
         stampaGraficoAvanzato(type, ctx, dataFatturato);
 
         //grafico torta
-      var typeFBA = dati.fatturato_by_agent.type;
+        var typeFBA = dati.fatturato_by_agent.type;
         var ctxTorta = $(".wrapGrafico3");
         var datiFBA = dati.fatturato_by_agent.data;
         var nomi = [];
@@ -76,13 +76,14 @@ $(document).ready(function() {
         }
 
         console.log(nomi);
+        console.log(fatturato);
 
         //GRAFICO torta
         var myPieChart = new Chart(ctxTorta, {
           type: typeFBA,
           data: {
+            labels: nomi,
             datasets: [{
-             labels: nomi,
               data: fatturato,
               backgroundColor: [
                 "#FF6384",
