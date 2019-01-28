@@ -14,7 +14,7 @@ $(document).ready(function() {
         var dati = JSON.parse(data);
         console.log(dati);
         var ctx = $(".wrapGrafico");
-        stampaGrafico(ctx,dati);
+        stampaGrafico(ctx, dati);
 
 
       },
@@ -56,13 +56,34 @@ $(document).ready(function() {
       method: "GET",
       success: function(data) {
         var dati = JSON.parse(data);
-
+        console.log(dati);
         var type = dati.fatturato.type;
         var ctx = $(".wrapGrafico2");
         var dataFatturato = dati.fatturato.data;
-        stampaGraficoAvanzato(type,ctx,dataFatturato);
+        stampaGraficoAvanzato(type, ctx, dataFatturato);
+
+        //grafico torta
+      var typeFBA = dati.fatturato_by_agent.type;
+        var ctxTorta = $(".wrapGrafico3");
 
 
+        //GRAFICO torta
+        var myPieChart = new Chart(ctxTorta, {
+          type: typeFBA,
+          data: {
+            datasets: [{
+              labels: ["p1","p2","p3","p4"],
+              data: [20,34,56,233],
+              backgroundColor: [
+                "#FF6384",
+                "#63FF84",
+                "#84FF63",
+                "#8463FF",
+              ]
+            }]
+          }
+
+        });
 
       },
       error: function(error) {
@@ -73,10 +94,9 @@ $(document).ready(function() {
 
 
   };
-  function stampaGraficoAvanzato(type,ctx,dataFatturato) {
+
+  function stampaGraficoAvanzato(type, ctx, dataFatturato) {
     //GRAFICO FATTURATO MILESTONE 2!
-
-
     var chart = new Chart(ctx, {
       // The type of chart we want to create
       type: type,
@@ -97,4 +117,7 @@ $(document).ready(function() {
     });
     //FINE GRAFICO FATTURATO MILESTONE 2 //
   }
+
+
+
 });
