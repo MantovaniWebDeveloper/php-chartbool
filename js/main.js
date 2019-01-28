@@ -13,7 +13,8 @@ $(document).ready(function() {
       success: function(data) {
         var dati = JSON.parse(data);
         console.log(dati);
-        stampaGrafico(dati);
+        var ctx = $(".wrapGrafico");
+        stampaGrafico(ctx,dati);
 
 
       },
@@ -26,9 +27,8 @@ $(document).ready(function() {
 
   };
   //funzione per stampaGrafico
-  function stampaGrafico(dati) {
+  function stampaGrafico(ctx, dati) {
     //parte esempio da modificare
-    var ctx = $(".wrapGrafico");
     var chart = new Chart(ctx, {
       // The type of chart we want to create
       type: 'line',
@@ -57,25 +57,11 @@ $(document).ready(function() {
       success: function(data) {
         var dati = JSON.parse(data);
 
+        var type = dati.fatturato.type;
         var ctx = $(".wrapGrafico2");
-        var chart = new Chart(ctx, {
-          // The type of chart we want to create
-          type: dati.type,
+        var dataFatturato = dati.fatturato.data;
+        stampaGraficoAvanzato(type,ctx,dataFatturato);
 
-          // The data for our dataset
-          data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [{
-              label: "Vendite milestone 2",
-              backgroundColor: 'rgb(255, 99, 132)',
-              borderColor: 'rgb(255, 99, 132)',
-              data: dati.data,
-            }]
-          },
-
-          // Configuration options go here
-          options: {}
-        });
 
 
       },
@@ -87,5 +73,28 @@ $(document).ready(function() {
 
 
   };
+  function stampaGraficoAvanzato(type,ctx,dataFatturato) {
+    //GRAFICO FATTURATO MILESTONE 2!
 
+
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: type,
+
+      // The data for our dataset
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+          label: "Vendite milestone 2",
+          backgroundColor: 'yellow',
+          borderColor: 'rgb(255, 99, 132)',
+          data: dataFatturato,
+        }]
+      },
+
+      // Configuration options go here
+      options: {}
+    });
+    //FINE GRAFICO FATTURATO MILESTONE 2 //
+  }
 });

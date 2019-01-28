@@ -17,6 +17,10 @@
       <canvas class="wrapGrafico2">
 
       </canvas>
+
+      <canvas class="wrapGrafico3">
+
+      </canvas>
     </div>
   <script src="js/main.js">
   </script>

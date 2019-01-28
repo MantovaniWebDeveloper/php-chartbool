@@ -19,5 +19,5 @@
 
 
 
-   echo json_encode($graphs[fatturato]);
+   echo json_encode($graphs);
  ?>
