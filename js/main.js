@@ -1,6 +1,6 @@
 $(document).ready(function() {
  //parte esempio da modificare
-  var ctx = document.getElementById('myChart').getContext('2d');
+  var ctx = $(".wrapGrafico");
   var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
