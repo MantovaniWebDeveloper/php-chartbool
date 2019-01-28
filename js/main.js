@@ -2,7 +2,7 @@ $(document).ready(function() {
   //indirizzo locale dei dati
   var url = 'http://localhost/php/php-chartbool/data.php';
   recuperoDati(url);
-  
+  //funzione recupero dati tramite chiamata ajax
   function recuperoDati(url) {
 
     $.ajax({
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 
   };
-
+  //funzione per stampaGrafico
   function stampaGrafico(dati) {
     //parte esempio da modificare
     var ctx = $(".wrapGrafico");
