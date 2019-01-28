@@ -65,14 +65,22 @@ $(document).ready(function() {
         //grafico torta
       var typeFBA = dati.fatturato_by_agent.type;
         var ctxTorta = $(".wrapGrafico3");
+        var datiFBA = dati.fatturato_by_agent.data;
+        var nomi = [];
+        for (var dato in datiFBA) {
+          console.log(dato);
+          nomi.push(dato);
 
+        }
+
+        console.log(nomi);
 
         //GRAFICO torta
         var myPieChart = new Chart(ctxTorta, {
           type: typeFBA,
           data: {
             datasets: [{
-              labels: ["p1","p2","p3","p4"],
+              labels: nomi,
               data: [20,34,56,233],
               backgroundColor: [
                 "#FF6384",
