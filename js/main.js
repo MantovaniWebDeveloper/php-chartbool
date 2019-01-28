@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  //indirizzo locale dei dati
+  var url = 'http://localhost/php/php-chartbool/data.php';
  //parte esempio da modificare
   var ctx = $(".wrapGrafico");
   var chart = new Chart(ctx, {
@@ -22,5 +24,8 @@ $(document).ready(function() {
 
 
 
+  function recuperoDati(url){
+
+  }
 
 });
