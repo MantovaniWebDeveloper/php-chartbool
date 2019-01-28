@@ -57,12 +57,14 @@ $(document).ready(function() {
       success: function(data) {
         var dati = JSON.parse(data);
         console.log(dati);
+        //dati recuperati per secondo grafico
+
         var type = dati.fatturato.type;
         var ctx = $(".wrapGrafico2");
         var dataFatturato = dati.fatturato.data;
         stampaGraficoAvanzato(type, ctx, dataFatturato);
 
-        //grafico torta
+        //dati recuperati grafico torta
         var typeFBA = dati.fatturato_by_agent.type;
         var ctxTorta = $(".wrapGrafico3");
         var datiFBA = dati.fatturato_by_agent.data;
@@ -72,29 +74,12 @@ $(document).ready(function() {
           console.log(nome + " " + datiFBA[nome]);
           nomi.push(nome);
           fatturato.push(datiFBA[nome]);
-
         }
 
         console.log(nomi);
         console.log(fatturato);
 
-        //GRAFICO torta
-        var myPieChart = new Chart(ctxTorta, {
-          type: typeFBA,
-          data: {
-            labels: nomi,
-            datasets: [{
-              data: fatturato,
-              backgroundColor: [
-                "#FF6384",
-                "#63FF84",
-                "#84FF63",
-                "#8463FF",
-              ]
-            }]
-          }
-
-        });
+        stampaTortaAvanzato(typeFBA, ctxTorta, nomi, fatturato);
 
       },
       error: function(error) {
@@ -127,6 +112,26 @@ $(document).ready(function() {
       options: {}
     });
     //FINE GRAFICO FATTURATO MILESTONE 2 //
+  }
+
+  function stampaTortaAvanzato(typeFBA, ctxTorta, nomi, fatturato) {
+    //GRAFICO torta
+    var myPieChart = new Chart(ctxTorta, {
+      type: typeFBA,
+      data: {
+        labels: nomi,
+        datasets: [{
+          data: fatturato,
+          backgroundColor: [
+            "#FF6384",
+            "#63FF84",
+            "#84FF63",
+            "#8463FF",
+          ]
+        }]
+      }
+
+    });
   }
 
 
