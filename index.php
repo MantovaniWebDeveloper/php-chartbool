@@ -21,6 +21,12 @@
       <canvas class="wrapGrafico3">
 
       </canvas>
+      <canvas class="wrapGrafico4">
+
+      </canvas>
+      <canvas class="wrapGrafico5">
+
+      </canvas>
     </div>
   <script src="js/main.js">
   </script>

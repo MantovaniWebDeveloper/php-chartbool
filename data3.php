@@ -25,4 +25,6 @@
       'access' => 'clevel'
     ],
   ];
+
+  echo json_encode($graphs);
  ?>
